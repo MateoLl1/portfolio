@@ -1,0 +1,19 @@
+/* === Corrección de alineación del bloque de resumen === */
+.iknow_tm_resume .resume_inner {
+  display: flex !important;
+  align-items: flex-start !important; /* ambas columnas arriba */
+  justify-content: space-between;
+}
+
+/* Asegurar que las columnas estén alineadas arriba y sin padding */
+.iknow_tm_resume .resume_inner .left,
+.iknow_tm_resume .resume_inner .right {
+  align-self: flex-start !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* En algunos templates la derecha tenía un margin-top innecesario */
+.iknow_tm_resume .resume_inner .right {
+  margin-left: 50px;
+}
