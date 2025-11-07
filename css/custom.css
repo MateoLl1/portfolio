@@ -1,19 +1,38 @@
-/* === Corrección de alineación del bloque de resumen === */
+/* Mantener 2 columnas y alinear arriba */
 .iknow_tm_resume .resume_inner {
-  display: flex !important;
-  align-items: flex-start !important; /* ambas columnas arriba */
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start !important;
 }
-
-/* Asegurar que las columnas estén alineadas arriba y sin padding */
 .iknow_tm_resume .resume_inner .left,
 .iknow_tm_resume .resume_inner .right {
-  align-self: flex-start !important;
+  width: 50% !important;
+}
+
+/* Quitar cualquier separación que el tema ponga arriba */
+.iknow_tm_resume .resume_inner .right,
+.iknow_tm_resume .resume_inner .right > *:first-child {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+/* Algunos themes meten un pseudo-elemento que empuja hacia abajo */
+.iknow_tm_resume .resume_inner .right::before {
+  content: none !important;
+  display: none !important;
+}
 
-/* En algunos templates la derecha tenía un margin-top innecesario */
+/* --- Forzar que la derecha suba (ajusta el número si hace falta) --- */
 .iknow_tm_resume .resume_inner .right {
-  margin-left: 50px;
+  margin-top: -250px !important; /* súbela 80px; cambia a -60/-100 si quieres afinar */
+}
+
+/* Mobile: apilar normal, sin desplazamiento */
+@media (max-width: 1040px) {
+  .iknow_tm_resume .resume_inner .left,
+  .iknow_tm_resume .resume_inner .right {
+    width: 100% !important;
+  }
+  .iknow_tm_resume .resume_inner .right {
+    margin-top: 0 !important;
+  }
 }
