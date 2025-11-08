@@ -36,3 +36,61 @@
     margin-top: 0 !important;
   }
 }
+
+.project-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 0.6rem;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+  background: var(--accent, #4f46e5);
+  color: #fff;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.btn-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+.btn-link:active {
+  transform: translateY(0);
+}
+.btn-link.outline {
+  background: transparent;
+  color: var(--black, #4f46e5);
+  border-color: currentColor;
+}
+.btn-link .icon {
+  display: inline-flex;
+}
+
+/* Solo para el segundo botón (el que tiene la clase .outline) */
+.btn-link.outline {
+  background: #000; /* fondo negro */
+  color: #fff; /* texto blanco */
+  border-color: #000; /* borde negro */
+}
+
+.btn-link.outline:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  opacity: 0.95;
+}
+
+.btn-link.outline:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-link.outline .icon svg {
+  fill: currentColor; /* asegura que el icono se vea blanco */
+}
