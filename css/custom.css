@@ -37,6 +37,7 @@
   }
 }
 
+/* PORTAFOLIO ENLACES */
 .project-links {
   display: flex;
   gap: 0.75rem;
@@ -93,4 +94,72 @@
 
 .btn-link.outline .icon svg {
   fill: currentColor; /* asegura que el icono se vea blanco */
+}
+
+/* FORMULARIO DE CONTACTO */
+/* ====== CONTACTO: botón ====== */
+#contact_form .iknow_tm_button button,
+#contact_form .iknow_tm_button a {
+  display: inline-block;
+  padding: 12px 22px;
+  border: 0;
+  border-radius: 10px;
+  background: #ff8a00; /* naranja */
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 138, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+#contact_form .iknow_tm_button button:hover,
+#contact_form .iknow_tm_button a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(255, 138, 0, 0.35);
+}
+
+#contact_form .iknow_tm_button button:active,
+#contact_form .iknow_tm_button a:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(255, 138, 0, 0.3);
+}
+
+#contact_form .iknow_tm_button button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ====== CONTACTO: alertas ====== */
+.returnmessage {
+  margin: 0 0 14px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+/* Oculta si no hay texto */
+.returnmessage:empty {
+  display: none;
+}
+
+/* Éxito -> NARANJA */
+.returnmessage.success {
+  background: rgba(255, 138, 0, 0.1);
+  color: #ff8a00;
+  border-color: rgba(255, 138, 0, 0.4);
+}
+
+/* Error -> ROJO */
+.returnmessage.error {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+/* Mensaje de campos requeridos en rojo */
+.empty_notice span {
+  color: #ef4444;
+  font-weight: 600;
 }
