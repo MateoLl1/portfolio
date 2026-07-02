@@ -1,0 +1,20 @@
+<section id="about" class="about">
+  <h2 class="numbered-heading" data-number="01." appReveal>{{ content().nav.items[0].label }}</h2>
+
+  <div class="about__content" appReveal>
+    <div class="about__text">
+      @for (paragraph of content().about.paragraphs; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+    </div>
+
+    <div class="about__skills">
+      <p class="about__skills-intro">{{ content().about.skillsIntro }}</p>
+      <ul class="about__skills-grid">
+        @for (skill of content().about.skills; track skill) {
+          <li>{{ skill }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+<article class="card" appReveal>
+  <div class="card__top">
+    <svg class="card__folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" />
+    </svg>
+
+    @if (project.link) {
+      <a class="card__external" [href]="project.link.url" target="_blank" rel="noopener" [attr.aria-label]="project.name">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+          <path d="M15 3h6v6M10 14 21 3" />
+        </svg>
+      </a>
+    }
+  </div>
+
+  <h3 class="card__title">{{ project.name }}</h3>
+  <p class="card__description">{{ project.description }}</p>
+
+  <ul class="tech-tag-list card__tech">
+    @for (tech of project.tech; track tech) {
+      <li>{{ tech }}</li>
+    }
+  </ul>
+</article>

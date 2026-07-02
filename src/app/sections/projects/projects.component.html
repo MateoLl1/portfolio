@@ -1,0 +1,27 @@
+<section id="projects" class="projects">
+  <h2 class="numbered-heading" data-number="03." appReveal>{{ content().nav.items[2].label }}</h2>
+
+  <div class="projects__featured-list">
+    @for (project of content().projects.featured; track project.name; let i = $index) {
+      <app-featured-project
+        [project]="project"
+        [overline]="content().projects.featuredOverline"
+        [reversed]="i % 2 === 1"
+      />
+    }
+  </div>
+
+  <h3 class="projects__other-heading" appReveal>{{ content().projects.otherHeading }}</h3>
+
+  <div class="projects__grid">
+    @for (project of visibleOther(); track project.name) {
+      <app-project-card [project]="project" />
+    }
+  </div>
+
+  @if (hasMore()) {
+    <button type="button" class="btn-outline projects__toggle" (click)="toggleExpanded()">
+      {{ expanded() ? content().projects.showLess : content().projects.showMore }}
+    </button>
+  }
+</section>

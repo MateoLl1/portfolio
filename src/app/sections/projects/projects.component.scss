@@ -1,0 +1,25 @@
+.projects {
+  padding: 100px 0;
+}
+
+.projects__featured-list {
+  margin-bottom: 100px;
+}
+
+.projects__other-heading {
+  margin-bottom: 32px;
+  font-size: clamp(20px, 3vw, 24px);
+  font-weight: 600;
+  color: var(--lightest-slate);
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.projects__toggle {
+  display: block;
+  margin: 48px auto 0;
+}

@@ -1,13 +1,35 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, inject } from '@angular/core';
+import { ActiveSectionService } from './core/active-section.service';
+import { SECTION_IDS } from './data/content';
+import { TopnavComponent } from './layout/topnav/topnav.component';
+import { SocialRailComponent } from './layout/rails/social-rail.component';
+import { EmailRailComponent } from './layout/rails/email-rail.component';
+import { HeroComponent } from './sections/hero/hero.component';
+import { AboutComponent } from './sections/about/about.component';
+import { ExperienceComponent } from './sections/experience/experience.component';
+import { ProjectsComponent } from './sections/projects/projects.component';
+import { ContactComponent } from './sections/contact/contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    TopnavComponent,
+    SocialRailComponent,
+    EmailRailComponent,
+    HeroComponent,
+    AboutComponent,
+    ExperienceComponent,
+    ProjectsComponent,
+    ContactComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  title = 'portfolio';
+export class AppComponent implements AfterViewInit {
+  private readonly activeSectionService = inject(ActiveSectionService);
+
+  ngAfterViewInit(): void {
+    this.activeSectionService.observe(SECTION_IDS);
+  }
 }

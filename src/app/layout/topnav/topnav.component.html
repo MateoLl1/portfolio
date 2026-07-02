@@ -1,0 +1,71 @@
+<ng-template #langToggle>
+  <button type="button" class="lang-toggle" (click)="toggleLanguage()" aria-label="Cambiar idioma">
+    <span [class.active]="lang() === 'es'">ES</span>
+    <span class="lang-toggle__divider">/</span>
+    <span [class.active]="lang() === 'en'">EN</span>
+  </button>
+</ng-template>
+
+<header class="topnav">
+  <a class="topnav__logo" href="#hero" (click)="closeMenu()" aria-label="Mateo Llerena">ML</a>
+
+  <nav class="topnav__links" aria-label="Navegación principal">
+    <ol>
+      @for (item of content().nav.items; track item.id; let i = $index) {
+        <li>
+          <a [href]="'#' + item.id" [class.active]="activeId() === item.id">
+            <span class="topnav__number">{{ (i + 1).toString().padStart(2, '0') }}.</span>
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ol>
+  </nav>
+
+  <div class="topnav__actions">
+    <ng-container [ngTemplateOutlet]="langToggle" />
+    @if (resumeUrl) {
+      <a class="btn-outline topnav__resume" [href]="resumeUrl" target="_blank" rel="noopener">
+        {{ content().nav.resumeLabel }}
+      </a>
+    }
+  </div>
+
+  <button
+    type="button"
+    class="hamburger"
+    [class.is-open]="menuOpen()"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuOpen()"
+    aria-label="Abrir menú"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" [class.open]="menuOpen()">
+  <nav aria-label="Navegación móvil">
+    <ol>
+      @for (item of content().nav.items; track item.id; let i = $index) {
+        <li>
+          <a [href]="'#' + item.id" (click)="closeMenu()">
+            <span class="topnav__number">{{ (i + 1).toString().padStart(2, '0') }}.</span>
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ol>
+  </nav>
+
+  <ng-container [ngTemplateOutlet]="langToggle" />
+
+  @if (resumeUrl) {
+    <a class="btn-outline topnav__resume" [href]="resumeUrl" target="_blank" rel="noopener" (click)="closeMenu()">
+      {{ content().nav.resumeLabel }}
+    </a>
+  }
+</div>
+
+<div class="topnav-backdrop" [class.visible]="menuOpen()" (click)="closeMenu()"></div>

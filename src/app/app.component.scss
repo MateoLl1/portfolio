@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+.content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--nav-height) clamp(24px, 8vw, 150px) 0;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: calc(var(--nav-height) + 20px) 24px 24px;
+  }
+}

@@ -1,0 +1,37 @@
+<section id="experience" class="experience">
+  <h2 class="numbered-heading" data-number="02." appReveal>{{ content().experience.heading }}</h2>
+
+  <div class="experience__panel" appReveal>
+    <div class="experience__tablist" role="tablist" aria-orientation="vertical">
+      @for (job of content().experience.jobs; track job.company; let i = $index) {
+        <button
+          type="button"
+          role="tab"
+          class="experience__tab"
+          [class.active]="activeIndex() === i"
+          [attr.aria-selected]="activeIndex() === i"
+          (click)="selectTab(i)"
+        >
+          {{ job.company }}
+        </button>
+      }
+      <span class="experience__tab-highlight" [style.transform]="'translateY(' + (activeIndex() * 100) + '%)'"></span>
+    </div>
+
+    @for (job of content().experience.jobs; track job.company; let i = $index) {
+      @if (activeIndex() === i) {
+        <div class="experience__details" role="tabpanel">
+          <h3 class="experience__role">
+            {{ job.role }} <span class="experience__company">&#64; {{ job.company }}</span>
+          </h3>
+          <p class="experience__date">{{ job.date }}</p>
+          <ul class="experience__bullets">
+            @for (bullet of job.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+        </div>
+      }
+    }
+  </div>
+</section>

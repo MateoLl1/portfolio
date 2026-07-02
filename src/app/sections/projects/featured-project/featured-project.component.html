@@ -1,0 +1,23 @@
+<article class="featured" [class.reversed]="reversed" appReveal>
+  <div class="featured__visual">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+      <path d="M9.4 16.6 4.8 12l4.6-4.6M14.6 7.4 19.2 12l-4.6 4.6" />
+    </svg>
+  </div>
+
+  <div class="featured__body">
+    <p class="featured__overline">{{ overline }}</p>
+    <h3 class="featured__title">{{ project.name }}</h3>
+    <p class="featured__description">{{ project.description }}</p>
+    <ul class="tech-tag-list featured__tech">
+      @for (tech of project.tech; track tech) {
+        <li>{{ tech }}</li>
+      }
+    </ul>
+    @if (project.link) {
+      <a class="featured__link" [href]="project.link.url" target="_blank" rel="noopener">
+        {{ project.link.label }}
+      </a>
+    }
+  </div>
+</article>

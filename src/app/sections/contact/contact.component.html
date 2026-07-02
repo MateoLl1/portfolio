@@ -1,0 +1,16 @@
+<section id="contact" class="contact" appReveal>
+  <p class="contact__overline">{{ content().contact.overline }}</p>
+  <h2 class="contact__heading">{{ content().contact.heading }}</h2>
+  <p class="contact__description">{{ content().contact.description }}</p>
+  <a class="btn-outline contact__cta" [href]="'mailto:' + social.email">{{ content().contact.cta }}</a>
+</section>
+
+<footer class="footer">
+  <ul class="footer__social">
+    <li><a [href]="social.github" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a [href]="social.linkedin" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a [href]="social.whatsapp" target="_blank" rel="noopener">WhatsApp</a></li>
+    <li><a [href]="'mailto:' + social.email">Email</a></li>
+  </ul>
+  <p class="footer__credit">{{ content().footer.credit }}</p>
+</footer>
