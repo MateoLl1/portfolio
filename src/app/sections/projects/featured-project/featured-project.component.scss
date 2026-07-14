@@ -4,11 +4,7 @@
   grid-template-columns: 1fr 1.2fr;
   align-items: center;
   gap: 24px;
-  margin-bottom: 80px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  margin-bottom: 100px;
 
   &.reversed {
     grid-template-columns: 1.2fr 1fr;
@@ -42,6 +38,44 @@
     width: 25%;
     height: 25%;
     opacity: 0.6;
+  }
+}
+
+.featured__visual--image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  cursor: zoom-in;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: var(--transition);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--green);
+    mix-blend-mode: screen;
+    opacity: 0.55;
+    transition: var(--transition);
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after {
+      opacity: 0;
+    }
+
+    img {
+      transform: scale(1.03);
+    }
   }
 }
 

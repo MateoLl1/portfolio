@@ -1,9 +1,20 @@
 <article class="featured" [class.reversed]="reversed" appReveal>
-  <div class="featured__visual">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-      <path d="M9.4 16.6 4.8 12l4.6-4.6M14.6 7.4 19.2 12l-4.6 4.6" />
-    </svg>
-  </div>
+  @if (project.image) {
+    <button
+      type="button"
+      class="featured__visual featured__visual--image"
+      (click)="openLightbox()"
+      [attr.aria-label]="project.name"
+    >
+      <img [src]="project.image" [alt]="project.name" loading="lazy" />
+    </button>
+  } @else {
+    <div class="featured__visual">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <path d="M9.4 16.6 4.8 12l4.6-4.6M14.6 7.4 19.2 12l-4.6 4.6" />
+      </svg>
+    </div>
+  }
 
   <div class="featured__body">
     <p class="featured__overline">{{ overline }}</p>

@@ -2,7 +2,84 @@
   <p class="contact__overline">{{ content().contact.overline }}</p>
   <h2 class="contact__heading">{{ content().contact.heading }}</h2>
   <p class="contact__description">{{ content().contact.description }}</p>
-  <a class="btn-outline contact__cta" [href]="'mailto:' + social.email">{{ content().contact.cta }}</a>
+
+  <form
+    class="contact-form"
+    [action]="formsubmitEndpoint"
+    method="POST"
+    (submit)="onSubmit($event)"
+  >
+    <input type="hidden" name="_subject" value="Nuevo contacto — Portafolio" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="text" name="_honey" class="contact-form__honey" tabindex="-1" autocomplete="off" />
+
+    <div class="contact-form__row">
+      <input
+        type="text"
+        name="name"
+        [placeholder]="content().contact.form.name"
+        [attr.aria-label]="content().contact.form.name"
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        [placeholder]="content().contact.form.email"
+        [attr.aria-label]="content().contact.form.email"
+        required
+      />
+    </div>
+
+    <div class="contact-form__row">
+      <input
+        type="tel"
+        name="phone"
+        [placeholder]="content().contact.form.phone"
+        [attr.aria-label]="content().contact.form.phone"
+      />
+      <input
+        type="text"
+        name="subject"
+        [placeholder]="content().contact.form.subject"
+        [attr.aria-label]="content().contact.form.subject"
+        required
+      />
+    </div>
+
+    <textarea
+      name="message"
+      rows="5"
+      [placeholder]="content().contact.form.message"
+      [attr.aria-label]="content().contact.form.message"
+      required
+    ></textarea>
+
+    @if (status() === 'invalid') {
+      <p class="contact-form__notice contact-form__notice--error" role="alert">
+        {{ content().contact.form.requiredNotice }}
+      </p>
+    }
+    @if (status() === 'success') {
+      <p class="contact-form__notice contact-form__notice--success" role="status">
+        {{ content().contact.form.success }}
+      </p>
+    }
+    @if (status() === 'error') {
+      <p class="contact-form__notice contact-form__notice--error" role="alert">
+        {{ content().contact.form.error }}
+      </p>
+    }
+
+    <button type="submit" class="btn-outline contact-form__submit" [disabled]="status() === 'sending'">
+      {{ status() === 'sending' ? content().contact.form.sending : content().contact.form.submit }}
+    </button>
+  </form>
+
+  <p class="contact__fallback">
+    {{ content().contact.form.or }}
+    <a [href]="'mailto:' + social.email">{{ social.email }}</a>
+  </p>
 </section>
 
 <footer class="footer">

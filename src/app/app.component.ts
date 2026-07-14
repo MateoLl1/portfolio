@@ -9,6 +9,7 @@ import { AboutComponent } from './sections/about/about.component';
 import { ExperienceComponent } from './sections/experience/experience.component';
 import { ProjectsComponent } from './sections/projects/projects.component';
 import { ContactComponent } from './sections/contact/contact.component';
+import { ImageLightboxComponent } from './shared/image-lightbox/image-lightbox.component';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +23,7 @@ import { ContactComponent } from './sections/contact/contact.component';
     ExperienceComponent,
     ProjectsComponent,
     ContactComponent,
+    ImageLightboxComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

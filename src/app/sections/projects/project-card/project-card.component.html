@@ -1,4 +1,15 @@
 <article class="card" appReveal>
+  @if (project.image) {
+    <button
+      type="button"
+      class="card__thumb"
+      (click)="openLightbox()"
+      [attr.aria-label]="project.name"
+    >
+      <img [src]="project.image" [alt]="project.name" loading="lazy" />
+    </button>
+  }
+
   <div class="card__top">
     <svg class="card__folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
       <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" />

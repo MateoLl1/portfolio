@@ -22,6 +22,7 @@ export interface FeaturedProject {
   description: string;
   tech: string[];
   link?: ProjectLink;
+  image?: string;
 }
 
 export interface GridProject {
@@ -29,6 +30,7 @@ export interface GridProject {
   description: string;
   tech: string[];
   link?: ProjectLink;
+  image?: string;
 }
 
 export interface PortfolioContent {
@@ -62,7 +64,19 @@ export interface PortfolioContent {
     overline: string;
     heading: string;
     description: string;
-    cta: string;
+    form: {
+      name: string;
+      email: string;
+      phone: string;
+      subject: string;
+      message: string;
+      submit: string;
+      sending: string;
+      success: string;
+      error: string;
+      requiredNotice: string;
+      or: string;
+    };
   };
   footer: { credit: string };
 }
@@ -75,6 +89,9 @@ export const SOCIAL_LINKS = {
 };
 
 export const SECTION_IDS = ['about', 'experience', 'projects', 'contact'];
+
+/** FormSubmit.co endpoint — free, backend-less form handler, works on static GitHub Pages hosting. */
+export const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/${SOCIAL_LINKS.email}`;
 
 /** Set to a real URL (e.g. '/resume.pdf' after dropping the file in `public/`) to show the Resume button. */
 export const RESUME_URL: string | null = null;
@@ -202,6 +219,7 @@ const es: PortfolioContent = {
           'Plataforma web y móvil (copciecuador.com) para consultar el Código Orgánico de la Producción, Comercio e Inversión de Ecuador. Lideré el proyecto de punta a punta: frontend Angular y app Flutter multiplataforma, backend Java + Spring Boot + MySQL, lectura correlacionada entre artículos y reglamentos (–40% en tiempo de búsqueda), narración de contenido por IA (text-to-speech) y un flujo completo de suscripciones pagas integrado con la pasarela de pagos Payphone.',
         tech: ['Angular', 'Flutter', 'Java', 'Spring Boot', 'MySQL', 'Payphone'],
         link: { label: 'copciecuador.com', url: 'https://copciecuador.com/' },
+        image: 'projects/copci.jpg',
       },
       {
         name: 'SmartView CRM',
@@ -209,6 +227,7 @@ const es: PortfolioContent = {
           'CRM multitenant inspirado en la filosofía de Kommo, que centraliza contactos, oportunidades, cotizaciones y postventa. Diseñé la arquitectura multitenant por esquema, reforcé la seguridad y protección de rutas, optimicé tiempos de carga y respuesta, agregué soporte multilenguaje e integración con WhatsApp para seguimiento comercial, y lideré el despliegue end-to-end (configuración, hardening, releases y monitoreo).',
         tech: ['Multitenant', 'Angular', 'WhatsApp API', 'Seguridad', 'DevOps'],
         link: { label: 'app.ecu-smartview.com', url: 'https://app.ecu-smartview.com/auth/login' },
+        image: 'projects/smartview.jpg',
       },
       {
         name: 'Kiosco Digital Híbrido SIAC',
@@ -230,6 +249,7 @@ const es: PortfolioContent = {
           'Asistente conversacional embebido que responde dudas frecuentes y agenda citas automáticamente, sincronizado con calendario y notificaciones por correo para paciente, especialista y administración.',
         tech: ['Chatbot', 'Google Calendar', 'Automatización'],
         link: { label: 'feetmedic.com', url: 'https://feetmedic.com/' },
+        image: 'projects/feetmedic.jpg',
       },
       {
         name: 'Jaime Lozada',
@@ -237,6 +257,7 @@ const es: PortfolioContent = {
           'Portal clínico integrado con backend propio para gestión de citas, historiales y seguimiento, con bot de respuestas que guía la reserva y valida datos básicos.',
         tech: ['Portal Web', 'Bot de Atención', 'Backend Propio'],
         link: { label: 'jaimelozada.com', url: 'http://jaimelozada.com/' },
+        image: 'projects/jaime-lozada.jpg',
       },
       {
         name: 'Todo Comercio Exterior Ecuador',
@@ -244,6 +265,7 @@ const es: PortfolioContent = {
           'Web corporativa con arquitectura editorial clara para difundir contenidos de comercio exterior, con bot asesor para consultas frecuentes que deriva a equipo comercial cuando aplica.',
         tech: ['CMS', 'Bot Asesor', 'SEO'],
         link: { label: 'todocomercioexterior.com.ec', url: 'https://todocomercioexterior.com.ec/' },
+        image: 'projects/comercio-exterior.jpg',
       },
       {
         name: 'Laboratorio de Dexter',
@@ -251,6 +273,7 @@ const es: PortfolioContent = {
           'E-commerce de insumos de laboratorio desarrollado de extremo a extremo (DNS, hosting, web e inventario en tiempo real), con asistente de ventas en web y WhatsApp.',
         tech: ['E-commerce', 'Inventario en tiempo real', 'WhatsApp'],
         link: { label: 'laboratoriodedexter.com', url: 'https://laboratoriodedexter.com/' },
+        image: 'projects/laboratorio-dexter.jpg',
       },
       {
         name: 'BlueMagic',
@@ -258,6 +281,7 @@ const es: PortfolioContent = {
           'Optimización de un e-commerce existente: catálogo por categorías, variantes e inventario visibles, y asistente de ventas en web/WhatsApp que guía el proceso de compra.',
         tech: ['E-commerce', 'Asistente de Ventas', 'WhatsApp'],
         link: { label: 'bluemagic.ec', url: 'https://bluemagic.ec/' },
+        image: 'projects/bluemagic.jpg',
       },
       {
         name: 'Zuitch',
@@ -265,6 +289,7 @@ const es: PortfolioContent = {
           'Red social web con perfiles, publicaciones, mensajería directa, llamadas y transmisiones en vivo para eventos y charlas. Puse en marcha toda la plataforma.',
         tech: ['Red Social', 'WebRTC', 'Mensajería en tiempo real'],
         link: { label: 'zuitch.com', url: 'https://zuitch.com/' },
+        image: 'projects/zuitch.jpg',
       },
       {
         name: 'Alfa Business Apps (CRM WhatsApp)',
@@ -272,6 +297,7 @@ const es: PortfolioContent = {
           'Evolución de un CRM centrado en WhatsApp hacia un esquema multicanal: mejoré el agente de IA, amplié integraciones de canal y di soporte en DevOps y base de datos.',
         tech: ['CRM', 'IA', 'DevOps'],
         link: { label: 'crm.alfabusiness.app', url: 'https://crm.alfabusiness.app/' },
+        image: 'projects/alfa-business.jpg',
       },
       {
         name: '6ZIX',
@@ -279,6 +305,7 @@ const es: PortfolioContent = {
           'Plataforma de presencia de marca orientada a conversión, con bot/asesor para cualificar leads y canalizarlos. Desarrollo completo del proyecto.',
         tech: ['Landing Page', 'Bot/Asesor'],
         link: { label: '6zix.com', url: 'https://6zix.com/' },
+        image: 'projects/6zix.jpg',
       },
       {
         name: 'Delinear Design',
@@ -318,7 +345,19 @@ const es: PortfolioContent = {
     heading: 'Ponte en contacto',
     description:
       'Estoy abierto a nuevos proyectos, colaboraciones o simplemente conversar sobre automatización, IA y desarrollo full-stack. Escríbeme y te responderé lo antes posible.',
-    cta: 'Enviar un correo',
+    form: {
+      name: 'Tu nombre',
+      email: 'Tu correo electrónico',
+      phone: 'Tu teléfono (opcional)',
+      subject: 'Asunto',
+      message: 'Tu mensaje aquí',
+      submit: 'Enviar mensaje',
+      sending: 'Enviando...',
+      success: '¡Gracias! Tu mensaje fue enviado.',
+      error: 'Hubo un problema al enviar. Intenta de nuevo.',
+      requiredNotice: 'Completa los campos requeridos.',
+      or: 'o escríbeme directo a',
+    },
   },
   footer: {
     credit: 'Diseñado y construido por Mateo Llerena con Angular.',
@@ -448,6 +487,7 @@ const en: PortfolioContent = {
           "Web and mobile platform (copciecuador.com) for browsing Ecuador's foreign trade code (COPCI). I led the project end-to-end: Angular frontend and cross-platform Flutter app, Java + Spring Boot + MySQL backend, cross-referenced article/regulation reading (–40% search time), AI narration (text-to-speech), and a full paid-subscription flow integrated with the Payphone payment gateway.",
         tech: ['Angular', 'Flutter', 'Java', 'Spring Boot', 'MySQL', 'Payphone'],
         link: { label: 'copciecuador.com', url: 'https://copciecuador.com/' },
+        image: 'projects/copci.jpg',
       },
       {
         name: 'SmartView CRM',
@@ -455,6 +495,7 @@ const en: PortfolioContent = {
           'A multitenant CRM inspired by the Kommo philosophy, centralizing contacts, deals, quotes and after-sales. I designed the schema-per-tenant architecture, hardened route security, optimized load and response times, added multi-language support and WhatsApp integration for sales follow-up, and led the end-to-end deployment (configuration, hardening, releases and monitoring).',
         tech: ['Multitenant', 'Angular', 'WhatsApp API', 'Security', 'DevOps'],
         link: { label: 'app.ecu-smartview.com', url: 'https://app.ecu-smartview.com/auth/login' },
+        image: 'projects/smartview.jpg',
       },
       {
         name: 'SIAC Hybrid Digital Kiosk',
@@ -476,6 +517,7 @@ const en: PortfolioContent = {
           "An embedded conversational assistant that answers FAQs and books appointments automatically, synced with the calendar and email notifications for patient, specialist and administration.",
         tech: ['Chatbot', 'Google Calendar', 'Automation'],
         link: { label: 'feetmedic.com', url: 'https://feetmedic.com/' },
+        image: 'projects/feetmedic.jpg',
       },
       {
         name: 'Jaime Lozada',
@@ -483,6 +525,7 @@ const en: PortfolioContent = {
           "A clinic portal integrated with the clinic's own backend for appointments, records and follow-up, with a response bot that guides booking and validates basic data.",
         tech: ['Web Portal', 'Support Bot', 'Custom Backend'],
         link: { label: 'jaimelozada.com', url: 'http://jaimelozada.com/' },
+        image: 'projects/jaime-lozada.jpg',
       },
       {
         name: 'Todo Comercio Exterior Ecuador',
@@ -490,6 +533,7 @@ const en: PortfolioContent = {
           'A corporate site with a clear editorial architecture for foreign-trade content, with an advisor bot for FAQs that hands off to the sales team when needed.',
         tech: ['CMS', 'Advisor Bot', 'SEO'],
         link: { label: 'todocomercioexterior.com.ec', url: 'https://todocomercioexterior.com.ec/' },
+        image: 'projects/comercio-exterior.jpg',
       },
       {
         name: 'Laboratorio de Dexter',
@@ -497,6 +541,7 @@ const en: PortfolioContent = {
           'An e-commerce site for lab supplies built end-to-end (DNS, hosting, web and real-time inventory), with a sales assistant on the web and WhatsApp.',
         tech: ['E-commerce', 'Real-time inventory', 'WhatsApp'],
         link: { label: 'laboratoriodedexter.com', url: 'https://laboratoriodedexter.com/' },
+        image: 'projects/laboratorio-dexter.jpg',
       },
       {
         name: 'BlueMagic',
@@ -504,6 +549,7 @@ const en: PortfolioContent = {
           'Optimization of an existing e-commerce store: categorized catalog, visible variants and inventory, and a web/WhatsApp sales assistant guiding the purchase flow.',
         tech: ['E-commerce', 'Sales Assistant', 'WhatsApp'],
         link: { label: 'bluemagic.ec', url: 'https://bluemagic.ec/' },
+        image: 'projects/bluemagic.jpg',
       },
       {
         name: 'Zuitch',
@@ -511,6 +557,7 @@ const en: PortfolioContent = {
           'A social network with profiles, posts, direct messaging, calls and live streaming for events and talks. I set up the entire platform.',
         tech: ['Social Network', 'WebRTC', 'Real-time messaging'],
         link: { label: 'zuitch.com', url: 'https://zuitch.com/' },
+        image: 'projects/zuitch.jpg',
       },
       {
         name: 'Alfa Business Apps (WhatsApp CRM)',
@@ -518,6 +565,7 @@ const en: PortfolioContent = {
           'Evolution of a WhatsApp-centric CRM into a multichannel platform: improved the AI agent, added more channel integrations, and supported DevOps and database work.',
         tech: ['CRM', 'AI', 'DevOps'],
         link: { label: 'crm.alfabusiness.app', url: 'https://crm.alfabusiness.app/' },
+        image: 'projects/alfa-business.jpg',
       },
       {
         name: '6ZIX',
@@ -525,6 +573,7 @@ const en: PortfolioContent = {
           'A conversion-focused brand presence platform with a bot/advisor to qualify and route leads. Full end-to-end project development.',
         tech: ['Landing Page', 'Bot/Advisor'],
         link: { label: '6zix.com', url: 'https://6zix.com/' },
+        image: 'projects/6zix.jpg',
       },
       {
         name: 'Delinear Design',
@@ -564,7 +613,19 @@ const en: PortfolioContent = {
     heading: 'Get In Touch',
     description:
       "I'm open to new projects, collaborations, or just chatting about automation, AI and full-stack development. Reach out and I'll get back to you as soon as I can.",
-    cta: 'Say Hello',
+    form: {
+      name: 'Your name',
+      email: 'Your email',
+      phone: 'Your phone (optional)',
+      subject: 'Subject',
+      message: 'Your message here',
+      submit: 'Send message',
+      sending: 'Sending...',
+      success: "Thanks! Your message has been sent.",
+      error: 'Something went wrong. Please try again.',
+      requiredNotice: 'Please fill in the required fields.',
+      or: 'or email me directly at',
+    },
   },
   footer: {
     credit: 'Designed and built by Mateo Llerena with Angular.',

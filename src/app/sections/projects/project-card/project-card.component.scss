@@ -14,6 +14,29 @@
   }
 }
 
+.card__thumb {
+  display: block;
+  aspect-ratio: 16 / 9;
+  margin: -28px -28px 20px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  cursor: zoom-in;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: var(--transition);
+  }
+}
+
+.card:hover .card__thumb img,
+.card:focus-within .card__thumb img {
+  transform: scale(1.04);
+}
+
 .card__top {
   display: flex;
   align-items: center;
