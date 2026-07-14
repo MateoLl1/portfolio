@@ -1,7 +1,7 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { LanguageService } from '../../core/language.service';
 import { RevealDirective } from '../../core/reveal.directive';
-import { CONTENT, FORMSUBMIT_ENDPOINT, SOCIAL_LINKS } from '../../data/content';
+import { CONTENT, WEB3FORMS_ENDPOINT, WEB3FORMS_ACCESS_KEY, SOCIAL_LINKS } from '../../data/content';
 
 type SendStatus = 'idle' | 'sending' | 'success' | 'error' | 'invalid';
 
@@ -16,7 +16,8 @@ export class ContactComponent {
   private readonly languageService = inject(LanguageService);
   readonly content = computed(() => CONTENT[this.languageService.lang()]);
   readonly social = SOCIAL_LINKS;
-  readonly formsubmitEndpoint = FORMSUBMIT_ENDPOINT;
+  readonly web3formsEndpoint = WEB3FORMS_ENDPOINT;
+  readonly web3formsAccessKey = WEB3FORMS_ACCESS_KEY;
 
   readonly status = signal<SendStatus>('idle');
 
@@ -37,8 +38,9 @@ export class ContactComponent {
         headers: { Accept: 'application/json' },
         body: new FormData(form),
       });
+      const result = await response.json();
 
-      if (response.ok) {
+      if (response.ok && result.success) {
         this.status.set('success');
         form.reset();
       } else {

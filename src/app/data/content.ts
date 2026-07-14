@@ -90,8 +90,9 @@ export const SOCIAL_LINKS = {
 
 export const SECTION_IDS = ['about', 'experience', 'projects', 'contact'];
 
-/** FormSubmit.co endpoint — free, backend-less form handler, works on static GitHub Pages hosting. */
-export const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/${SOCIAL_LINKS.email}`;
+/** Web3Forms endpoint — free, backend-less form handler, works on static GitHub Pages hosting. */
+export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+export const WEB3FORMS_ACCESS_KEY = 'bb3d8390-c79d-4064-91e7-4022f54420b5';
 
 /** Set to a real URL (e.g. '/resume.pdf' after dropping the file in `public/`) to show the Resume button. */
 export const RESUME_URL: string | null = null;

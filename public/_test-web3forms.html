@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<body style="font-family: monospace; background: #0a192f; color: #ccd6f6; padding: 20px;">
+<pre id="out">Enviando...</pre>
+<script>
+const fd = new FormData();
+fd.append('access_key', 'bb3d8390-c79d-4064-91e7-4022f54420b5');
+fd.append('name', 'Mateo - Prueba real navegador');
+fd.append('email', 'test@example.com');
+fd.append('subject', 'Diagnostico Web3Forms desde navegador real');
+fd.append('message', 'Prueba end-to-end del formulario de contacto, ejecutada desde un navegador real headless en localhost:4300.');
+
+fetch('https://api.web3forms.com/submit', {
+  method: 'POST',
+  headers: { Accept: 'application/json' },
+  body: fd,
+})
+  .then(async (res) => {
+    const text = await res.text();
+    document.getElementById('out').textContent = 'STATUS: ' + res.status + '\nBODY: ' + text;
+  })
+  .catch((e) => {
+    document.getElementById('out').textContent = 'FETCH ERROR: ' + e.message;
+  });
+</script>
+</body>
+</html>
