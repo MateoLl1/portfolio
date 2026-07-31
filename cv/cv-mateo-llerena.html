@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>CV — Mateo Llerena</title>
+<style>
+  :root {
+    --ink: #16202e;
+    --muted: #4a5568;
+    --faint: #718096;
+    --accent: #0b7a63;
+    --line: #d8dee7;
+    --chip-bg: #eef4f2;
+  }
+
+  @page {
+    size: A4;
+    margin: 9mm 12mm;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    font-size: 8.7pt;
+    line-height: 1.32;
+  }
+
+  /* ===== Header ===== */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2.5px solid var(--ink);
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+  }
+
+  h1 {
+    font-size: 19pt;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+  }
+
+  .headline {
+    margin-top: 2px;
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .contact {
+    text-align: right;
+    font-size: 8.4pt;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .contact strong { color: var(--ink); }
+
+  /* ===== Sections ===== */
+  section { margin-bottom: 6px; }
+
+  h2 {
+    font-size: 9.2pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+  }
+
+  .summary { color: var(--muted); text-align: justify; }
+  .summary strong { color: var(--ink); }
+
+  /* ===== Experience ===== */
+  .job { margin-bottom: 5px; break-inside: avoid; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .job-title { font-size: 10.2pt; font-weight: 700; }
+  .job-company { font-weight: 600; color: var(--accent); }
+  .job-date {
+    font-size: 8.4pt;
+    color: var(--faint);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+
+  ul.bullets { margin: 2px 0 0 13px; }
+  ul.bullets li { margin-bottom: 1px; color: var(--muted); }
+  ul.bullets li::marker { color: var(--accent); }
+  ul.bullets strong { color: var(--ink); }
+
+  /* ===== Two-column bottom ===== */
+  .columns {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 16px;
+  }
+
+  /* ===== Skills ===== */
+  .skill-row { margin-bottom: 3px; }
+  .skill-row .label {
+    font-size: 7.8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+  }
+  .skill-row .label::after { content: ': '; }
+  .skill-row .label, .skill-row .items { display: inline; }
+  .skill-row .items { color: var(--muted); }
+
+  /* ===== Projects ===== */
+  .project { margin-bottom: 5.5px; }
+  .project .name { font-weight: 700; }
+  .project .desc { color: var(--muted); }
+  .project .impact { color: var(--accent); font-weight: 600; }
+
+  /* ===== Misc ===== */
+  .edu-item { margin-bottom: 4px; }
+  .edu-item .what { font-weight: 700; }
+  .edu-item .where { color: var(--muted); font-size: 8.8pt; }
+
+  .langs span { display: inline-block; margin-right: 14px; color: var(--muted); }
+  .langs strong { color: var(--ink); }
+
+  .footer-note {
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px solid var(--line);
+    font-size: 7.8pt;
+    color: var(--faint);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Mateo Llerena</h1>
+    <div class="headline">Tech Lead &amp; Full Stack Developer · Automatización con IA &amp; WhatsApp Business</div>
+  </div>
+  <div class="contact">
+    Quito, Ecuador · <strong>mateollerena40@gmail.com</strong> · <span style="white-space:nowrap">+593&nbsp;99&nbsp;831&nbsp;5812</span><br>
+    linkedin.com/in/mateo-llerena-dev · github.com/mateoll1<br>
+    mateoll1.github.io/portfolio
+  </div>
+</header>
+
+<section>
+  <p class="summary">
+    Tech Lead y desarrollador Full Stack con <strong>3+ años</strong> construyendo sistemas empresariales de punta a punta: <strong>CRMs y ERPs
+    multitenant</strong>, plataformas web/móviles e infraestructura cloud desde cero, con equipos liderados bajo SCRUM y migraciones de legacy
+    crítico (VB6 → web) hoy en producción multi-sede. Mi diferencial: unir producto con <strong>automatización aplicada</strong> —n8n, WhatsApp
+    Business API, agentes con IA— y resultados medibles: <strong>+35% conversión, −60% tiempo de respuesta, −40% tiempo de búsqueda</strong>.
+  </p>
+</section>
+
+<section>
+  <h2>Experiencia profesional</h2>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">Analista de Sistemas · <span class="job-company">Automotores Continental (Chevrolet)</span></div>
+      <div class="job-date">Dic 2025 – Actualidad · Quito</div>
+    </div>
+    <ul class="bullets">
+      <li>Administro y evoluciono el <strong>ERP y CRM corporativos</strong> (C#, ASP.NET / .NET Core, SQL Server avanzado) de la red de concesionarios a nivel nacional.</li>
+      <li>Lideré la <strong>migración de un sistema crítico de turnos de Visual Basic 6 a plataforma web</strong> (.NET Core + Flutter), hoy en producción en agencias de Costa y Sierra: app de guardia, kiosco y pantalla central con una sola base de código.</li>
+      <li>Especialista interno en <strong>Meta Business Suite y WhatsApp Business API</strong>: webhooks, integración con sistemas propios y monitoreo de entregabilidad de campañas masivas.</li>
+      <li>Diseño flujos avanzados de <strong>n8n</strong> para mensajería masiva y automatización de procesos; monitoreo de conversaciones asesor–cliente para trazabilidad de ventas. <strong>Pipelines CI/CD en Azure DevOps</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">Tech Lead &amp; Desarrollador Full Stack · <span class="job-company">NBC Soluciones Empresariales</span></div>
+      <div class="job-date">Ago 2025 – Oct 2025 · Quito</div>
+    </div>
+    <ul class="bullets">
+      <li>Lideré un <strong>equipo de 4 desarrolladores</strong> en un <strong>CRM multitenant ISO 9001</strong> desde cero (Angular 18 + Laravel 12 + PostgreSQL, un schema por tenant con aprovisionamiento automático).</li>
+      <li>Implementé <strong>mensajería omnicanal WhatsApp Business</strong> (Evolution API): sincronización de conversaciones, descifrado de multimedia y reintentos automáticos de adjuntos.</li>
+      <li>Establecí el proceso de ingeniería (SCRUM con DoR/DoD, PRs con revisión por pares, <strong>tests 70%+</strong>, métricas de calidad) y la capa de seguridad: Sanctum, 2FA, roles granulares y auditoría.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">Desarrollador Full Stack &amp; Automatización IA · <span class="job-company">Alfa Business Apps</span></div>
+      <div class="job-date">Nov 2024 – Jul 2025 · Remoto</div>
+    </div>
+    <ul class="bullets">
+      <li>Desarrollé <strong>agentes conversacionales con IA</strong> integrados a CRM y ERP para atención al cliente y procesamiento de pedidos, <strong>aumentando la conversión en 35%</strong>.</li>
+      <li>Administré la infraestructura VPS completa (dominios, DNS, SSL, firewalls, hardening) de <strong>10+ clientes empresariales</strong>.</li>
+      <li>Plugin propietario WooCommerce con autenticación por tokens; servidor TURN para streaming WebRTC con <strong>500+ usuarios concurrentes</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">Desarrollador Web &amp; Automatización IA · <span class="job-company">Centro de Convenciones Metropolitano de Quito</span></div>
+      <div class="job-date">Nov 2024 – Ene 2025 · Quito</div>
+    </div>
+    <ul class="bullets">
+      <li>Desarrollé el sitio institucional (WordPress a medida) y un <strong>plugin propio de agente conversacional con IA</strong> conectado a CRM y WhatsApp Business que automatizó <strong>200+ consultas frecuentes</strong>, <strong>reduciendo el tiempo de respuesta en 60%</strong>.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-head">
+      <div class="job-title">Desarrollador Full Stack Web &amp; Mobile · <span class="job-company">Optimsoft</span></div>
+      <div class="job-date">Jul 2023 – Jul 2025 · Quito</div>
+    </div>
+    <ul class="bullets">
+      <li>Lideré de punta a punta <strong>copciecuador.com</strong>: Angular + Spring Boot + MySQL, app Flutter multiplataforma, narración por IA y <strong>suscripciones con Payphone</strong> — <strong>−40% en tiempo de búsqueda legal</strong>.</li>
+      <li>Monté desde cero infraestructura VPS orquestando <strong>7+ servicios Docker</strong> (n8n, Evolution API, Chatwoot, MinIO), con CI/CD y DNS/SSL automatizado en Cloudflare (15+ subdominios).</li>
+    </ul>
+  </div>
+</section>
+
+<div class="columns">
+  <div>
+    <section>
+      <h2>Proyectos insignia</h2>
+      <div class="project">
+        <span class="name">WA-Sync</span> <span class="desc">— Motor open-source de sincronización de WhatsApp Business (NestJS + PostgreSQL + MinIO), integrable a cualquier CRM/ERP.</span>
+      </div>
+      <div class="project">
+        <span class="name">Kiosco Digital SIAC</span> <span class="desc">— Turnos multicanal (.NET + Flutter): móvil, kiosco y TV con una base de código, </span><span class="impact">en producción multi-región.</span>
+      </div>
+      <div class="project">
+        <span class="name">SmartView CRM</span> <span class="desc">— CRM multitenant con embudos, multilenguaje y WhatsApp; despliegue end-to-end.</span>
+      </div>
+      <div class="project">
+        <span class="name">COPCI Ecuador</span> <span class="desc">— Plataforma legal web/móvil con IA, </span><span class="impact">monetizada con suscripciones (Payphone).</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Educación y certificaciones</h2>
+      <div class="edu-item">
+        <div class="what">Tecnólogo Superior en Desarrollo de Software</div>
+        <div class="where">Instituto Superior Tecnológico Cordillera · Finalizado</div>
+      </div>
+      <div class="edu-item">
+        <div class="what">Scrum Developer + IA</div>
+        <div class="where">Certificación profesional</div>
+      </div>
+    </section>
+  </div>
+
+  <div>
+    <section>
+      <h2>Stack técnico</h2>
+      <div class="skill-row"><span class="label">Frontend / Mobile</span><div class="items">Angular, TypeScript, Flutter, Tailwind, Material</div></div>
+      <div class="skill-row"><span class="label">Backend</span><div class="items">Node.js/NestJS, Laravel, C#/.NET Core, Spring Boot, APIs REST, microservicios, multitenancy</div></div>
+      <div class="skill-row"><span class="label">Bases de datos</span><div class="items">SQL Server (avanzado: SPs, optimización, administración), PostgreSQL, MySQL</div></div>
+      <div class="skill-row"><span class="label">Cloud &amp; DevOps</span><div class="items">Azure DevOps, GCP, Docker/Compose, Nginx, Cloudflare, MinIO, Linux/VPS hardening</div></div>
+      <div class="skill-row"><span class="label">Automatización &amp; IA</span><div class="items">n8n (avanzado), WhatsApp Business API, Meta Business Suite, Evolution API, Typebot, Chatwoot, Flowise</div></div>
+      <div class="skill-row"><span class="label">Liderazgo</span><div class="items">SCRUM/Agile, arquitectura de sistemas, mentoría, documentación técnica</div></div>
+    </section>
+
+    <section>
+      <h2>Idiomas</h2>
+      <p class="langs">
+        <span><strong>Español</strong> · Nativo</span>
+        <span><strong>Inglés</strong> · A2 (en progreso a B2)</span>
+      </p>
+    </section>
+  </div>
+</div>
+
+</body>
+</html>
