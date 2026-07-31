@@ -115,9 +115,9 @@ const es: PortfolioContent = {
   hero: {
     greeting: 'Hola, mi nombre es',
     name: 'Mateo Llerena.',
-    subheading: 'Construyo productos full-stack impulsados por automatización.',
+    subheading: 'Lidero equipos y construyo software para negocios reales.',
     description:
-      'Soy un desarrollador Tech Lead enfocado en crear sistemas web y móviles robustos — CRMs multitenant, ERPs y automatizaciones con IA — combinando Angular, Node/Laravel/.NET y flujos de n8n para conectar procesos de negocio con WhatsApp Business y otros canales.',
+      'Como Tech Lead, disfruto llevar sistemas empresariales de la idea a producción: arquitecturas sólidas, equipos bien alineados y automatización que resuelve problemas de verdad, no solo demos bonitas.',
     cta: 'Ver mis proyectos',
   },
   about: {
@@ -361,7 +361,7 @@ const es: PortfolioContent = {
     },
   },
   footer: {
-    credit: 'Diseñado y construido por Mateo Llerena con Angular.',
+    credit: 'Diseñado y construido por Mateo Llerena.',
   },
 };
 
@@ -383,9 +383,9 @@ const en: PortfolioContent = {
   hero: {
     greeting: "Hi, my name is",
     name: 'Mateo Llerena.',
-    subheading: 'I build automation-driven full-stack products.',
+    subheading: 'I lead teams and build software for real businesses.',
     description:
-      "I'm a Tech Lead focused on building robust web and mobile systems — multitenant CRMs, ERPs and AI-driven automations — combining Angular, Node/Laravel/.NET and n8n workflows to connect business processes with WhatsApp Business and other channels.",
+      "As a Tech Lead, I enjoy taking enterprise systems from idea to production — solid architecture, well-aligned teams, and automation that solves real problems, not just nice demos.",
     cta: 'Check out my work',
   },
   about: {
@@ -629,7 +629,7 @@ const en: PortfolioContent = {
     },
   },
   footer: {
-    credit: 'Designed and built by Mateo Llerena with Angular.',
+    credit: 'Designed and built by Mateo Llerena.',
   },
 };
 

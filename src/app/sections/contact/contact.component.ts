@@ -20,6 +20,7 @@ export class ContactComponent {
   readonly web3formsAccessKey = WEB3FORMS_ACCESS_KEY;
 
   readonly status = signal<SendStatus>('idle');
+  readonly currentYear = new Date().getFullYear();
 
   async onSubmit(event: Event): Promise<void> {
     event.preventDefault();

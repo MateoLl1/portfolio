@@ -10,6 +10,7 @@ import { ExperienceComponent } from './sections/experience/experience.component'
 import { ProjectsComponent } from './sections/projects/projects.component';
 import { ContactComponent } from './sections/contact/contact.component';
 import { ImageLightboxComponent } from './shared/image-lightbox/image-lightbox.component';
+import { LinesBackgroundComponent } from './shared/lines-background/lines-background.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ import { ImageLightboxComponent } from './shared/image-lightbox/image-lightbox.c
     ProjectsComponent,
     ContactComponent,
     ImageLightboxComponent,
+    LinesBackgroundComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

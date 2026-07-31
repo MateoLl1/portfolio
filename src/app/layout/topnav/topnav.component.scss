@@ -36,19 +36,52 @@
 }
 
 .topnav__links a {
+  position: relative;
   display: inline-flex;
   align-items: baseline;
   gap: 6px;
+  padding-bottom: 4px;
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
   color: var(--light-slate);
   transition: var(--transition);
 
+  &::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--green);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+
   &:hover,
-  &:focus-visible,
+  &:focus-visible {
+    color: var(--green);
+  }
+
   &.active {
     color: var(--green);
+    animation: nav-active-pop 0.35s ease;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+@keyframes nav-active-pop {
+  from {
+    transform: translateY(3px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
