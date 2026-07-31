@@ -8,6 +8,10 @@ const STORAGE_KEY = 'portfolio-lang';
 export class LanguageService {
   readonly lang = signal<Lang>(this.readInitialLang());
 
+  constructor() {
+    document.documentElement.lang = this.lang();
+  }
+
   toggle(): void {
     this.set(this.lang() === 'es' ? 'en' : 'es');
   }
@@ -15,6 +19,7 @@ export class LanguageService {
   set(lang: Lang): void {
     this.lang.set(lang);
     localStorage.setItem(STORAGE_KEY, lang);
+    document.documentElement.lang = lang;
   }
 
   private readInitialLang(): Lang {
